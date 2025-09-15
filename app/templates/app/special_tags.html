@@ -24,6 +24,35 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <style>
+        /* Force logo size with maximum specificity */
+        .wrap-header-mobile .logo-mobile img,
+        .wrap-header-mobile .logo-mobile-flex img {
+            height: 70px !important;
+            width: auto !important;
+            max-width: none !important;
+        }
+        
+        /* Ensure header container is large enough */
+        .wrap-header-mobile {
+            min-height: 74px !important;
+            padding: 2px 15px !important;
+        }
+        
+        /* Prevent logo container from shrinking */
+        .logo-mobile {
+            flex-shrink: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        /* Style logo link */
+        .logo-mobile-flex {
+            display: flex !important;
+            align-items: center !important;
+            height: 70px !important;
+        }
+    </style>
+    <style>
         .products-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -149,7 +178,9 @@
         <!-- Mobile Header -->
         <div class="wrap-header-mobile">
             <div class="logo-mobile">
-                <a href="{% url 'index' %}"><img src="{% static 'images/icons/logo-03.png' %}" alt="IMG-LOGO" style="height: 70px !important;"></a>
+                <a href="{% url 'index' %}" class="logo-mobile-flex">
+                    <img src="{% static 'images/icons/logo-03.png' %}" alt="IMG-LOGO" style="height: 70px !important; width: auto !important;">
+                </a>
             </div>
 
             <div class="wrap-icon-header flex-w flex-r-m m-r-15">
