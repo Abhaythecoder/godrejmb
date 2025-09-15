@@ -1,0 +1,947 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{ product.name }} - Product Detail</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/MagnificPopup/magnific-popup.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/product-card.css' %}">
+<!--===============================================================================================-->
+</head>
+<body class="animsition">
+	
+	<!-- Header -->
+	<header class="header-v4">
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">
+						Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap-menu-desktop how-shadow1">
+				<nav class="limiter-menu-desktop container">
+					
+					<!-- Logo desktop -->		
+					<a href="{% url 'index' %}" class="logo">
+						<img src="{% static 'images/icons/logo-01.png' %}" alt="IMG-LOGO">
+						<img src="{% static 'images/icons/logo-02.png' %}" alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+
+							<li>
+								<a href="{% url 'index' %}">Home</a>
+							</li>
+							<li>
+								<a href="{% url 'product' %}">Shop</a>
+							</li>
+
+							<li>
+								<a href="{% url 'contact' %}">Contact</a>
+							</li>
+						</ul>
+					</div>	
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+						<a href="{% url 'shopping_cart' %}" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</a>
+					</div>
+				</nav>
+			</div>	
+		</div>
+   
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="{% url 'index' %}"><img src="{% static 'images/icons/logo-03.png' %}" alt="IMG-LOGO" style="height: 70px !important;"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+
+
+				<a href="{% url 'shopping_cart'%}"  class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+							<i class="zmdi zmdi-shopping-cart"></i>
+				</a>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="topbar-mobile">
+				<li>
+					<div class="left-top-bar">
+						Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+					</div>
+				</li>
+			</ul>
+
+			<ul class="main-menu-m">
+				<li>
+					<a href="{% url 'index' %}">Home</a>
+				</li>
+				<li>
+					<a href="{% url 'product' %}">Shop</a>
+				</li>
+				<li>
+					<a href="{% url 'contact' %}">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="{% static 'images/icons/icon-close2.png' %}" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</header>
+
+	<!-- Cart -->
+	<div class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
+
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
+				<span class="mtext-103 cl2">
+					Your Cart
+				</span>
+
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
+			
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full">
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="{% static 'images/item-cart-01.jpg' %}" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								White Shirt Pleat
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x ₹19.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="{% static 'images/item-cart-02.jpg' %}" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Converse All Star
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x ₹39.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="{% static 'images/item-cart-03.jpg' %}" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Nixon Porter Leather
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x ₹17.00
+							</span>
+						</div>
+					</li>
+				</ul>
+				
+				<div class="w-full">
+					<div class="header-cart-total w-full p-tb-40">
+						Total: ₹75.00
+					</div>
+
+					<div class="header-cart-buttons flex-w w-full">
+						<a href="{% url 'shopping_cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+							View Cart
+						</a>
+
+						<a href="{% url 'shopping_cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+							Check Out
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- breadcrumb -->
+	<div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+			<a href="{% url 'index' %}" class="stext-109 cl8 hov-cl1 trans-04">
+				Home
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<a href="{% url 'product' %}" class="stext-109 cl8 hov-cl1 trans-04">
+				{{ product.get_tags_display }}
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<span class="stext-109 cl4">
+				{{ product.name }}
+			</span>
+		</div>
+	</div>
+		
+
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">
+	<div class="container">
+		<div class="row">
+			<!-- Product Images -->
+			<div class="col-md-6 col-lg-7 p-b-30">
+				<div class="d-flex" style="gap: 24px; align-items: flex-start;">
+					<!-- Thumbnails -->
+					<div id="product-thumbnails" style="display: flex; flex-direction: column; gap: 12px;">
+						{% if product.images.all %}
+							{% for image in product.images.all %}
+								<img src="{{ image.image.url }}" alt="{{ product.name }} thumbnail" class="img-thumbnail" style="width: 70px; height: 70px; object-fit: cover; cursor: pointer; border: 2px solid #eee;" onclick="showMainImage('{{ image.image.url }}', this)">
+							{% endfor %}
+						{% else %}
+							<img src="{% static 'images/product-detail-01.jpg' %}" alt="No image available" class="img-thumbnail" style="width: 70px; height: 70px; object-fit: cover; cursor: pointer; border: 2px solid #eee;" onclick="showMainImage('{% static 'images/product-detail-01.jpg' %}', this)">
+						{% endif %}
+					</div>
+					<!-- Main Image -->
+					<div style="flex: 1;">
+						<img id="main-product-image" src="{% if product.images.all %}{{ product.images.all.0.image.url }}{% else %}{% static 'images/product-detail-01.jpg' %}{% endif %}" alt="{{ product.name }}" class="img-fluid" style="max-width: 100%; max-height: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+					</div>
+				</div>
+			</div>
+
+            <!-- Product Info -->
+            <div class="col-md-6 col-lg-5 p-b-30">
+                <div class="p-r-50 p-t-5 p-lr-0-lg">
+                    <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                        {{ product.name }}
+                    </h4>
+
+                    <span class="mtext-106 cl2">
+                        ₹{{ product.discounted_price|default:product.original_price }}
+                        {% if product.discounted_price %}
+                            <span class="mtext-106 cl9" style="text-decoration: line-through; font-size: 0.8em; margin-left: 10px;">
+                                ₹{{ product.original_price }}
+                            </span>
+                            <span class="mtext-106 cl1" style="margin-left: 10px;">
+                                ({{ product.discount_rate }}% off)
+                            </span>
+                        {% endif %}
+                    </span>
+
+                    <p class="stext-102 cl3 p-t-23">
+                        {{ product.features|linebreaks }}
+                    </p>
+
+                    <!-- Colors -->
+					<!-- Colors + Quantity + Cart -->
+					<div class="p-t-33">
+						<form method="post" action="{% url 'add_to_cart' product.id %}" class="add-to-cart-form" id="cartForm">
+							{% csrf_token %}
+							{% if product.colors %}
+							<div class="flex-w flex-r-m p-b-10">
+								<div class="size-203 flex-c-m respon6">Color</div>
+								<div class="size-204 respon6-next">
+									<select name="color" id="colorSelect" {% if product.colors.exists %}required{% endif %} style="width:100%;padding:6px 10px;border-radius:6px;border:1px solid #e0e0e0;">
+										<option value="">Choose an option</option>
+										{% for color in product.colors.all %}
+											<option value="{{ color.id }}">{{ color.name }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							{% endif %}
+							<div class="flex-w flex-r-m p-b-10" style="margin-top:10px;">
+								<div class="size-204 flex-w flex-m respon6-next">
+									<div class="wrap-num-product flex-w m-r-20 m-tb-10">
+										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" onclick="decrementQuantity()">
+											<i class="fs-16 zmdi zmdi-minus"></i>
+										</div>
+										<input class="mtext-104 cl3 txt-center num-product" type="number" name="quantity" value="1" min="1" id="quantityInput">
+										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" onclick="incrementQuantity()">
+											<i class="fs-16 zmdi zmdi-plus"></i>
+										</div>
+									</div>
+									<button type="submit" id="addToCartBtn" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+										Add to cart
+									</button>
+								</div>
+							</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Information Section -->
+        <div class="bor10 m-t-50 p-t-43 p-b-40">
+            <div class="container">
+                <div class="row">
+                    <!-- Description Column -->
+                    <div class="col-lg-6 mb-4">
+                        <h4 class="mtext-105 cl2 p-b-30">Description</h4>
+                        <div class="how-pos2 p-lr-15-md">
+                            <p class="stext-102 cl6" style="line-height: 1.8;">
+                                {{ product.features|linebreaks }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information Column -->
+                    <div class="col-lg-6">
+                        <h4 class="mtext-105 cl2 p-b-30">Additional Information</h4>
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="p-lr-28 p-lr-15-sm" style="background: #f8f9fa; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                    <li class="flex-w flex-t p-b-15" style="border-bottom: 1px solid #e9ecef; margin-bottom: 15px;">
+                                        <span class="stext-102 cl3 size-205" style="font-weight: 600; font-size: 1.1em; color: #333;">Materials</span>
+                                        <span class="stext-102 cl6 size-206" style="font-weight: 500;">{{ product.materials }}</span>
+                                    </li>
+
+                                    <li class="flex-w flex-t p-b-15" style="border-bottom: 1px solid #e9ecef; margin-bottom: 15px;">
+                                        <span class="stext-102 cl3 size-205" style="font-weight: 600; font-size: 1.1em; color: #333;">Measurements</span>
+                                        <span class="stext-102 cl6 size-206" style="font-weight: 500;">{{ product.measurements }}</span>
+                                    </li>
+
+                                    <li class="flex-w flex-t p-b-15" style="border-bottom: 1px solid #e9ecef; margin-bottom: 15px;">
+                                        <span class="stext-102 cl3 size-205" style="font-weight: 600; font-size: 1.1em; color: #333;">Availability</span>
+                                        <span class="stext-102 cl6 size-206" style="font-weight: 500;">
+                                            {% if product.is_in_stock %}
+                                                <span style="color: #28a745; font-weight: 600;">In Stock</span>
+                                            {% else %}
+                                                <span style="color: #dc3545; font-weight: 600;">Out of Stock</span>
+                                            {% endif %}
+                                        </span>
+                                    </li>
+
+                                    <li class="flex-w flex-t p-b-15">
+                                        <span class="stext-102 cl3 size-205" style="font-weight: 600; font-size: 1.1em; color: #333;">Delivery Info</span>
+                                        <span class="stext-102 cl6 size-206" style="font-weight: 500;">{{ product.delivery_availability }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SKU + Category -->
+        <div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
+            <span class="stext-107 cl6 p-lr-25">
+                SKU: {{ product.id }}
+            </span>
+            <span class="stext-107 cl6 p-lr-25">
+                Categories: {{ product.get_tags_display }}
+            </span>
+        </div>
+    </div>
+</section>
+
+<section class="sec-relate-product bg0 p-t-45 p-b-105">
+    <div class="container">
+        <div class="p-b-45">
+            <h3 class="ltext-106 cl5 txt-center">Related Products</h3>
+        </div>
+        <div class="row">
+            {% for related in related_products %}
+                <div class="col-md-6 col-lg-4 p-b-35">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="{% if related.images.first %}{{ related.images.first.image.url }}{% else %}{% static 'images/product-detail-01.jpg' %}{% endif %}" alt="{{ related.name }}">
+                        </div>
+                        <div class="product-info">
+                            <h5>{{ related.name }}</h5>
+                            <div class="price">
+                                ₹{{ related.discounted_price|default:related.original_price }}
+                                {% if related.discounted_price %}
+                                    <span class="original-price">₹{{ related.original_price }}</span>
+                                    <span class="discount">({{ related.discount_rate }}% off)</span>
+                                {% endif %}
+                            </div>
+                            <a href="{% url 'product_detail' related.id %}" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="col-12 text-center">No related products found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+		
+
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+	
+					<ul>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=almirah" class="stext-107 cl7 hov-cl1 trans-04">
+								Almirah
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=beds" class="stext-107 cl7 hov-cl1 trans-04">
+								Beds
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=sofa" class="stext-107 cl7 hov-cl1 trans-04">
+								Sofas
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=chairs" class="stext-107 cl7 hov-cl1 trans-04">
+								Chairs
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=mattress" class="stext-107 cl7 hov-cl1 trans-04">
+								Mattress
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=dinning" class="stext-107 cl7 hov-cl1 trans-04">
+								Dinning
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=table" class="stext-107 cl7 hov-cl1 trans-04">
+								Tables
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=safe" class="stext-107 cl7 hov-cl1 trans-04">
+								Safe
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Links
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="tel:7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Call
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://wa.me/7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Whatsapp 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="mailto:godrejmohanbrothers@gmail.com" class="stext-107 cl7 hov-cl1 trans-04">
+								Email
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="stext-107 cl7 hov-cl1 trans-04">
+								Instagram
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="stext-107 cl7 hov-cl1 trans-04">
+								Facebook
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Visit us in Store
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/gVyWrHCS9S6a73Fz6" class="stext-107 cl7 hov-cl1 trans-04">
+								Thiruvalla
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/DKEbhf6L4owVnAFt8" class="stext-107 cl7 hov-cl1 trans-04">
+								Chengannur 
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+					<div class="p-t-27"></div>
+						<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="https://wa.me/7005998730" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-whatsapp"></i>
+						</a>
+					</div>
+				</div>
+	</div>
+
+	<div class="p-t-40">
+		<p class="stext-107 cl6 txt-center">
+			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
+		</p>
+	</div>
+</div>
+</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- Modal1 -->
+	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+		<div class="overlay-modal1 js-hide-modal1"></div>
+
+		<div class="container">
+			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
+					<img src="{% static 'images/icons/icon-close.png' %}" alt="CLOSE">
+				</button>
+
+				<div class="row">
+					<div class="col-md-6 col-lg-7 p-b-30">
+						<div class="p-l-25 p-r-30 p-lr-0-lg">
+							<div class="wrap-slick3 flex-sb flex-w">
+								<div class="wrap-slick3-dots"></div>
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+								<div class="slick3 gallery-lb">
+									<div class="item-slick3" data-thumb="{% static 'images/product-detail-01.jpg' %}">
+										<div class="wrap-pic-w pos-relative">
+											<img src="{% static 'images/product-detail-01.jpg' %}" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{% static 'images/product-detail-01.jpg' %}">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="{% static 'images/product-detail-02.jpg' %}">
+										<div class="wrap-pic-w pos-relative">
+											<img src="{% static 'images/product-detail-02.jpg' %}" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{% static 'images/product-detail-02.jpg' %}">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="{% static 'images/product-detail-03.jpg' %}">
+										<div class="wrap-pic-w pos-relative">
+											<img src="{% static 'images/product-detail-03.jpg' %}" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{% static 'images/product-detail-03.jpg' %}">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-lg-5 p-b-30">
+						<div class="p-r-50 p-t-5 p-lr-0-lg">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+								Lightweight Jacket
+							</h4>
+
+							<span class="mtext-106 cl2">
+								₹58.79
+							</span>
+
+							<p class="stext-102 cl3 p-t-23">
+								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+							</p>
+							
+							<!--  -->
+							<div class="p-t-33">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Size
+									</div>
+
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="time">
+												<option>Choose an option</option>
+												<option>Size S</option>
+												<option>Size M</option>
+												<option>Size L</option>
+												<option>Size XL</option>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Color
+									</div>
+
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="time">
+												<option>Choose an option</option>
+												<option>Red</option>
+												<option>Blue</option>
+												<option>White</option>
+												<option>Grey</option>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+
+										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											Add to cart
+										</button>
+									</div>
+								</div>	
+							</div>
+
+							<!--  -->
+							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
+								<div class="flex-m bor9 p-r-10 m-r-11">
+									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+										<i class="zmdi zmdi-favorite"></i>
+									</a>
+								</div>
+
+								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+									<i class="fa fa-facebook"></i>
+								</a>
+
+								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+									<i class="fa fa-twitter"></i>
+								</a>
+
+								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+									<i class="fa fa-google-plus"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!--===============================================================================================-->	
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var form = document.getElementById('cartForm');
+		var addToCartBtn = document.getElementById('addToCartBtn');
+		var colorSelect = document.getElementById('colorSelect');
+		var quantityInput = document.getElementById('quantityInput');
+
+		if (form) {
+			form.onsubmit = function(e) {
+				e.preventDefault();
+
+				// Create FormData from the form
+				var formData = new FormData(form);
+				
+				// Validate color selection if required
+				if (colorSelect && colorSelect.hasAttribute('required') && !colorSelect.value) {
+					alert('Please select a color before adding to cart.');
+					return false;
+				}
+
+				// Ensure color and quantity are included in formData
+				if (colorSelect) {
+					formData.set('color', colorSelect.value);
+				}
+				formData.set('quantity', quantityInput.value);
+
+				// Debug log the form data
+				console.log('Submitting form with data:');
+				formData.forEach((value, key) => {
+					console.log(key + ':', value);
+				});
+
+				// Get CSRF token
+				var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+				// Disable button to prevent double submission
+				addToCartBtn.disabled = true;
+
+				// Make the fetch request
+				fetch(form.action, {
+					method: 'POST',
+					body: formData,
+					headers: {
+						'X-Requested-With': 'XMLHttpRequest',
+						'X-CSRFToken': csrfToken
+					},
+					credentials: 'same-origin'
+				})
+				.then(response => {
+					console.log('Server response status:', response.status);
+					return response.json();
+				})
+				.then(data => {
+					console.log('Server response data:', data);
+					if (data.error) {
+						throw new Error(data.error);
+					}
+					window.location.href = data.redirect_url;
+				})
+				.catch(error => {
+					console.error('Error:', error);
+					alert(error.message || 'Failed to add item to cart. Please try again.');
+				})
+				.finally(() => {
+					addToCartBtn.disabled = false;
+				});
+
+				return false;
+			};
+		}
+	});
+
+	$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+		$('.parallax100').parallax100();
+		$('.gallery-lb').each(function() {
+			$(this).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				gallery: {
+					enabled:true
+				},
+				mainClass: 'mfp-fade'
+			});
+		});
+		$('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
+			e.preventDefault();
+		});
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+	<script>
+	function showMainImage(url, thumb) {
+		document.getElementById('main-product-image').src = url;
+		// Remove active border from all thumbnails
+		var thumbs = document.querySelectorAll('#product-thumbnails img');
+		thumbs.forEach(function(img) {
+			img.style.border = '2px solid #eee';
+		});
+		// Highlight the selected thumbnail
+		thumb.style.border = '2px solid #007bff';
+	}
+	// Set initial active border
+	window.onload = function() {
+		var thumbs = document.querySelectorAll('#product-thumbnails img');
+		if (thumbs.length > 0) {
+			thumbs[0].style.border = '2px solid #007bff';
+		}
+	};
+
+	// Quantity increment/decrement functions
+	function incrementQuantity() {
+		var input = document.getElementById('quantityInput');
+		if (input) {
+			var currentValue = parseInt(input.value) || 1;
+			input.value = currentValue + 1;
+		}
+	}
+
+	function decrementQuantity() {
+		var input = document.getElementById('quantityInput');
+		if (input) {
+			var currentValue = parseInt(input.value) || 1;
+			if (currentValue > 1) {
+				input.value = currentValue - 1;
+			}
+		}
+	}
+	</script>
+
+</body>
+</html>

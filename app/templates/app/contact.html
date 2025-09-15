@@ -1,0 +1,484 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+<style>
+    /* Override styles for mobile logo with high specificity */
+    .wrap-header-mobile .logo-mobile .logo-mobile-flex img {
+        height: 70px !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+    
+    /* Adjust mobile header to fit the logo with minimal height */
+    .wrap-header-mobile {
+        padding: 2px 15px !important;
+        min-height: 74px !important;
+    }
+</style>
+</head>
+<body class="animsition">
+	
+	<!-- Header -->
+	<header class="header-v4">
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">
+						Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+					</div>
+
+					<div class="right-top-bar flex-w h-full">
+						<a href="{% url 'contact' %}" class="flex-c-m trans-04 p-lr-25">
+							Contact
+						</a>
+
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							My Account
+						</a>
+
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							EN
+						</a>
+
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							INR
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap-menu-desktop how-shadow1">
+				<nav class="limiter-menu-desktop container">
+					
+					<!-- Logo desktop -->		
+					<a href="{% url 'index' %}" class="logo">
+						<img src="{% static 'images/icons/logo-01.png' %}" alt="IMG-LOGO">
+						<img src="{% static 'images/icons/logo-02.png' %}" alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+							<li>
+								<a href="{% url 'index' %}">Home</a>
+							</li>
+
+							<li>
+								<a href="{% url 'product' %}">Shop</a>
+							</li>
+
+							<li class="active-menu">
+								<a href="{% url 'contact' %}">Contact</a>
+							</li>
+						</ul>
+					</div>	
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="{% url 'index' %}" class="logo-mobile-flex">
+					<img src="{% static 'images/icons/logo-03.png' %}" alt="IMG-LOGO" style="height: 70px !important; width: auto !important;">
+				</a>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="topbar-mobile">
+				<li>
+					<div class="left-top-bar">
+						Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+					</div>
+				</li>
+
+			</ul>
+
+			<ul class="main-menu-m">
+				<li>
+					<a href="{% url 'index' %}">Home</a>
+				</li>
+
+				<li>
+					<a href="{% url 'product' %}">Shop</a>
+				</li>
+				<li>
+					<a href="contact.html">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="images/icons/icon-close2.png" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</header>
+
+	<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-10" style="background-image: url('images/bg-01.jpg');">
+		<h2 class="ltext-105 cl0 txt-center">
+			Contact
+		</h2>
+	</section>	
+
+	<!-- Content page -->
+	<section class="bg0 p-t-0 p-b-60">
+		<div class="container">
+			<div class="row">
+				<!-- Thiruvalla Store -->
+				<div class="col-md-6 mb-4">
+					<div class="bor10 p-3">
+						<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Thiruvalla Store
+						</h4>
+						<div class="map-container" style="height: 400px;">
+							<iframe 
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.994252829368!2d76.5455582!3d9.4219061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0623c2c23b6eb9%3A0x6ad0f824affa69fa!2sGodrej%20Interio%7C%20Mohan%20Brothers%20Thiruvalla!5e0!3m2!1sen!2sin!4v1757436793635!5m2!1sen!2sin" 
+								width="100%" 
+								height="100%" 
+								style="border:0;" 
+								allowfullscreen="" 
+								loading="lazy" 
+								referrerpolicy="no-referrer-when-downgrade">
+							</iframe>
+						</div>
+						<div class="contact-info p-t-30">
+							<div class="flex-w w-full p-b-20">
+								<span class="fs-18 cl5 txt-center size-211">
+									<span class="lnr lnr-map-marker"></span>
+								</span>
+								<div class="size-212 p-t-2">
+									<p class="stext-115 cl6">
+										<a href="https://maps.app.goo.gl/gVyWrHCS9S6a73Fz6" target="_blank" class="cl6 hov-cl1">
+											Get Directions to Thiruvalla Store
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Chengannur Store -->
+				<div class="col-md-6 mb-4">
+					<div class="bor10 p-3">
+						<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Chengannur Store
+						</h4>
+						<div class="map-container" style="height: 400px;">
+							<iframe 
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.8412896235377!2d76.5959387!3d9.347309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06233af4c0a5dd%3A0x771dae5a2374f2a6!2sMohan%20Brothers%20Chengannur%20Godrej%20Interio!5e0!3m2!1sen!2sin!4v1757436951812!5m2!1sen!2sin" 
+								width="100%" 
+								height="100%" 
+								style="border:0;" 
+								allowfullscreen="" 
+								loading="lazy" 
+								referrerpolicy="no-referrer-when-downgrade">
+							</iframe>
+						</div>
+						<div class="contact-info p-t-30">
+							<div class="flex-w w-full p-b-20">
+								<span class="fs-18 cl5 txt-center size-211">
+									<span class="lnr lnr-map-marker"></span>
+								</span>
+								<div class="size-212 p-t-2">
+									<p class="stext-115 cl6">
+										<a href="https://maps.app.goo.gl/DKEbhf6L4owVnAFt8" target="_blank" class="cl6 hov-cl1">
+											Get Directions to Chengannur Store
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Contact Information -->
+				<div class="col-12 mt-4">
+					<div class="bor10 p-lr-93 p-tb-30 p-lr-15-lg">
+						<div class="row">
+							<div class="col-md-4 mb-4">
+								<div class="flex-w w-full">
+									<span class="fs-18 cl5 txt-center size-211">
+										<span class="lnr lnr-phone-handset"></span>
+									</span>
+									<div class="size-212 p-t-2">
+										<span class="mtext-110 cl2">
+											Let's Talk
+										</span>
+										<p class="stext-115 cl1 size-213 p-t-18">
+											<a href="tel:7005998730">+91 7005998730</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="flex-w w-full">
+									<span class="fs-18 cl5 txt-center size-211">
+										<span class="lnr lnr-envelope"></span>
+									</span>
+									<div class="size-212 p-t-2">
+										<span class="mtext-110 cl2">
+											Email Us
+										</span>
+										<p class="stext-115 cl1 size-213 p-t-18">
+											<a href="mailto:godrejmohanbrothers@gmail.com">godrejmohanbrothers@gmail.com</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="flex-w w-full">
+									<span class="fs-18 cl5 txt-center size-211">
+										<span class="lnr lnr-bubble"></span>
+									</span>
+									<div class="size-212 p-t-2">
+										<span class="mtext-110 cl2">
+											WhatsApp
+										</span>
+										<p class="stext-115 cl1 size-213 p-t-18">
+											<a href="https://wa.me/7005998730">Chat with us</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+
+
+
+
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+	
+					<ul>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=almirah" class="stext-107 cl7 hov-cl1 trans-04">
+								Almirah
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=beds" class="stext-107 cl7 hov-cl1 trans-04">
+								Beds
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=sofa" class="stext-107 cl7 hov-cl1 trans-04">
+								Sofas
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=chairs" class="stext-107 cl7 hov-cl1 trans-04">
+								Chairs
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=mattress" class="stext-107 cl7 hov-cl1 trans-04">
+								Mattress
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=dinning" class="stext-107 cl7 hov-cl1 trans-04">
+								Dinning
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=table" class="stext-107 cl7 hov-cl1 trans-04">
+								Tables
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=safe" class="stext-107 cl7 hov-cl1 trans-04">
+								Safe
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Links
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="tel:7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Call
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://wa.me/7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Whatsapp 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="mailto:godrejmohanbrothers@gmail.com" class="stext-107 cl7 hov-cl1 trans-04">
+								Email
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="stext-107 cl7 hov-cl1 trans-04">
+								Instagram
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="stext-107 cl7 hov-cl1 trans-04">
+								Facebook
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Visit us in Store
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/gVyWrHCS9S6a73Fz6" class="stext-107 cl7 hov-cl1 trans-04">
+								Thiruvalla
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/DKEbhf6L4owVnAFt8" class="stext-107 cl7 hov-cl1 trans-04">
+								Chengannur 
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+					<div class="p-t-27"></div>
+						<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="https://wa.me/7005998730" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-whatsapp"></i>
+						</a>
+					</div>
+				</div>
+	</div>
+
+	<div class="p-t-40">
+		<p class="stext-107 cl6 txt-center">
+			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
+		</p>
+	</div>
+</div>
+</footer>
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+<!--===============================================================================================-->	
+	<!-- Scripts -->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+	<script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

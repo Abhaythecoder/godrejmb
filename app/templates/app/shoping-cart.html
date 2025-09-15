@@ -1,0 +1,549 @@
+{% load app_filters %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shoping Cart</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+</head>
+<body class="animsition">
+	
+	<header class="header-v4">
+		<div class="container-menu-desktop">
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">
+						Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap-menu-desktop how-shadow1">
+				<nav class="limiter-menu-desktop container">
+					
+					<a href="{% url 'index' %}"class="logo">
+						<img src="{% static 'images/icons/logo-01.png' %}" alt="IMG-LOGO">
+						<img src="{% static 'images/icons/logo-02.png' %}" alt="IMG-LOGO">
+					</a>
+
+					<div class="menu-desktop">
+						<ul class="main-menu">
+							<li>
+								<a href="{% url 'index' %}">Home</a>
+							</li>
+
+							<li>
+								<a href="{% url 'product' %}">Shop</a>
+							</li>
+							<li>
+								<a href="{% url 'contact' %}">Contact</a>
+							</li>`
+						</ul>
+					</div>	
+				</nav>
+			</div>	
+		</div>
+
+		<div class="wrap-header-mobile">
+			<div class="logo-mobile">
+				<a href="{% url 'index' %}"><img src="{% static 'images/icons/logo-03.png' %}" alt="IMG-LOGO" style="height: 70px !important;"></a>
+			</div>
+
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<div class="menu-mobile">
+			<ul class="topbar-mobile">
+				<li>
+					<div class="left-top-bar">
+						Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+					</div>
+				</li>
+
+				
+			</ul>
+
+			<ul class="main-menu-m">
+				<li>
+					<a href="{% url 'index'%}">Home</a>
+				</li>
+
+				<li>
+					<a href="{% url 'product' %}">Shop</a>
+				</li>
+
+				<li>
+					<a href="{% url 'contact' %}">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="{% static 'images/icons/icon-close2.png' %}" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</header>
+
+	<div class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
+
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
+				<span class="mtext-103 cl2">
+					Your Cart
+				</span>
+
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
+			
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full">
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="{% static 'images/item-cart-01.jpg' %}" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								White Shirt Pleat
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $19.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="{% static 'images/item-cart-02.jpg' %}" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Converse All Star
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $39.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="{% static 'images/item-cart-03.jpg' %}" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Nixon Porter Leather
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $17.00
+							</span>
+						</div>
+					</li>
+				</ul>
+				
+				<div class="w-full">
+					<div class="header-cart-total w-full p-tb-40">
+						Total: $75.00
+					</div>
+
+					<div class="header-cart-buttons flex-w w-full">
+						<a href="{% url 'shopping_cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+							View Cart
+						</a>
+
+						<a href="{% url 'shopping_cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+							Check Out
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+			<a href="{% url 'index'%}" class="stext-109 cl8 hov-cl1 trans-04">
+				Home
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<span class="stext-109 cl4">
+				Shoping Cart
+			</span>
+		</div>
+	</div>
+		
+
+	<form method="post" action="{% url 'shopping_cart' %}" class="bg0 p-t-75 p-b-85">
+		{% csrf_token %}
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+					<div class="m-l-25 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							<!-- Mobile view -->
+							<div class="cart-items-mobile">
+								{% for item in cart_items %}
+									<div class="cart-item-card">
+										<div class="cart-item-header">
+											<div class="cart-item-image">
+												<img src="{% if item.product.images.first %}{{ item.product.images.first.image.url }}{% else %}{% static 'images/product-01.jpg' %}{% endif %}" alt="Product Image">
+											</div>
+											<div class="cart-item-details">
+                                                <h3 class="cart-item-name">{{ item.product.name }}</h3>
+												{% if item.color %}
+													<div class="cart-item-color">
+														<span class="color-label">{{ item.color.name }}</span>
+														{% if item.color.image %}
+															<span class="color-dot" style="background-image: url('{{ item.color.image.url }}')"></span>
+														{% endif %}
+													</div>
+												{% endif %}
+												<div class="cart-item-price">
+													<span>₹{{ item.product.discounted_price|default:item.product.original_price }}</span>
+												</div>
+											</div>
+											<button type="submit" name="remove" value="{{ item.key }}" class="cart-item-remove">
+												<i class="fa fa-trash"></i>
+											</button>
+										</div>
+										<div class="cart-item-footer">
+											<div class="cart-item-quantity">
+												<div class="quantity-controls">
+													<button type="submit" name="decrease" value="{{ item.key }}" class="quantity-btn">
+														<i class="zmdi zmdi-minus"></i>
+													</button>
+													<input type="number" name="quantity_{{ item.key }}" value="{{ item.quantity }}" min="0" readonly class="quantity-input">
+													<button type="submit" name="increase" value="{{ item.key }}" class="quantity-btn">
+														<i class="zmdi zmdi-plus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="cart-item-total">
+												<span class="total-label">Total:</span>
+												<span class="total-amount">₹{{ item.total }}</span>
+											</div>
+										</div>
+									</div>
+								{% empty %}
+									<div class="cart-empty">
+										<i class="fa fa-shopping-cart"></i>
+										<p>Your cart is empty</p>
+									</div>
+								{% endfor %}
+							</div>
+
+							<!-- Desktop view -->
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-1">Product</th>
+									<th class="column-2">Color</th>
+									<th class="column-3">Price</th>
+									<th class="column-4">Quantity</th>
+									<th class="column-5">Total</th>
+									<th class="column-6">Remove</th>
+								</tr>
+								{% for item in cart_items %}
+									<tr class="table_row">
+										<td class="column-1">
+											<div class="how-itemcart1">
+												<img src="{% if item.product.images.first %}{{ item.product.images.first.image.url }}{% else %}{% static 'images/product-01.jpg' %}{% endif %}" alt="IMG">
+											</div>
+											<div class="cart-item-name-desktop">{{ item.product.name }}</div>
+										</td>
+										<td class="column-2">
+											{% if item.color %}
+												<span>{{ item.color.name }}</span>
+												{% if item.color.image %}
+													<img src="{{ item.color.image.url }}" alt="{{ item.color.name }}" style="width:24px;height:24px;border-radius:50%;margin-left:4px;vertical-align:middle;">
+												{% endif %}
+											{% else %}
+												<span>-</span>
+											{% endif %}
+										</td>
+										<td class="column-3">₹{{ item.product.discounted_price|default:item.product.original_price }}</td>
+										<td class="column-4">
+											<div class="wrap-num-product flex-w m-l-auto m-r-0">
+												<button type="submit" name="decrease" value="{{ item.key }}" class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+													<i class="fs-16 zmdi zmdi-minus"></i>
+												</button>
+												<input class="mtext-104 cl3 txt-center num-product" type="number" name="quantity_{{ item.key }}" value="{{ item.quantity }}" min="0" readonly>
+												<button type="submit" name="increase" value="{{ item.key }}" class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+													<i class="fs-16 zmdi zmdi-plus"></i>
+												</button>
+											</div>
+										</td>
+										<td class="column-5">₹{{ item.total }}</td>
+										<td class="column-6">
+											<button type="submit" name="remove" value="{{ item.key }}" class="btn btn-danger btn-sm ml-2" title="Remove from cart">
+												<i class="fa fa-trash"></i> Remove
+											</button>
+										</td>
+									</tr>
+								{% empty %}
+									<tr><td colspan="6">Your cart is empty.</td></tr>
+								{% endfor %}
+							</table>
+						</div>
+
+						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+							<div class="flex-w flex-m m-r-20 m-tb-5">
+							</div>
+
+							<a href="{% url 'product' %}" class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+								Back to Products
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+						<h4 class="mtext-109 cl2 p-b-30">
+							Cart Totals
+						</h4>
+							<div class="flex-w flex-t p-t-27 p-b-33">
+								<div class="size-208">
+									<span class="mtext-101 cl2">
+										Total:
+									</span>
+								</div>
+
+								<div class="size-209 p-t-1">
+									<span class="mtext-110 cl2">
+										₹{{ total }}
+									</span>
+								</div>
+							</div>
+
+						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+							Proceed to Checkout
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+		
+	
+		
+
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+	
+					<ul>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=almirah" class="stext-107 cl7 hov-cl1 trans-04">
+								Almirah
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=beds" class="stext-107 cl7 hov-cl1 trans-04">
+								Beds
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=sofa" class="stext-107 cl7 hov-cl1 trans-04">
+								Sofas
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=chairs" class="stext-107 cl7 hov-cl1 trans-04">
+								Chairs
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=mattress" class="stext-107 cl7 hov-cl1 trans-04">
+								Mattress
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=dinning" class="stext-107 cl7 hov-cl1 trans-04">
+								Dinning
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=table" class="stext-107 cl7 hov-cl1 trans-04">
+								Tables
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=safe" class="stext-107 cl7 hov-cl1 trans-04">
+								Safe
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Links
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="tel:7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Call
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://wa.me/7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Whatsapp 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="mailto:godrejmohanbrothers@gmail.com" class="stext-107 cl7 hov-cl1 trans-04">
+								Email
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="stext-107 cl7 hov-cl1 trans-04">
+								Instagram
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="stext-107 cl7 hov-cl1 trans-04">
+								Facebook
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Visit us in Store
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/gVyWrHCS9S6a73Fz6" class="stext-107 cl7 hov-cl1 trans-04">
+								Thiruvalla
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/DKEbhf6L4owVnAFt8" class="stext-107 cl7 hov-cl1 trans-04">
+								Chengannur 
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+					<div class="p-t-27"></div>
+						<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="https://wa.me/7005998730" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-whatsapp"></i>
+						</a>
+					</div>
+				</div>
+	</div>
+
+	<div class="p-t-40">
+		<p class="stext-107 cl6 txt-center">
+			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
+		</p>
+	</div>
+</div>
+</footer>
+
+
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

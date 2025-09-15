@@ -1,0 +1,428 @@
+{% load static %}
+{% load app_filters %}
+{% load discount_filters %}
+{% load string_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Special Tags</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/MagnificPopup/magnific-popup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <style>
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            justify-items: center;
+        }
+        .product-card {
+            background-color: #ffffff;
+            border: 1px solid #e9e9e9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            width: 250px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .product-image-container {
+            position: relative;
+            background-color: #f5f5f5;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .product-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            color: #333333;
+            font-weight: 600;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        .product-name:hover {
+            color: #555;
+        }
+        .product-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .product-price .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-weight: 400;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        .product-price .discounted-price {
+            color: #d0021b;
+        }
+        @media (max-width: 768px) {
+            .products-container {
+                grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+                gap: 20px;
+            }
+        }
+        @media (max-width: 576px) {
+            .products-container {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="animsition">
+    <header class="header-v4">
+        <div class="container-menu-desktop">
+            <div class="top-bar">
+                <div class="content-topbar flex-sb-m h-full container">
+                    <div class="left-top-bar">
+                        Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+                    </div>
+                    <div class="right-top-bar flex-w h-full">
+                        <a href="#" class="flex-c-m trans-04 p-lr-25">Contact</a>
+                        <a href="#" class="flex-c-m trans-04 p-lr-25">My Account</a>
+                        <a href="#" class="flex-c-m trans-04 p-lr-25">EN</a>
+                        <a href="#" class="flex-c-m trans-04 p-lr-25">INR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-menu-desktop how-shadow1">
+                <nav class="limiter-menu-desktop container">
+                    <a href="{% url 'index' %}" class="logo">
+                        <img src="{% static 'images/icons/logo-01.png' %}" alt="IMG-LOGO">
+						<img src="{% static 'images/icons/logo-02.png' %}" alt="IMG-LOGO">
+                    </a>
+                    <div class="menu-desktop">
+                        <ul class="main-menu">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li class="active-menu"><a href="{% url 'special_tags' %}">Special Tags</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Header -->
+        <div class="wrap-header-mobile">
+            <div class="logo-mobile">
+                <a href="{% url 'index' %}"><img src="{% static 'images/icons/logo-03.png' %}" alt="IMG-LOGO" style="height: 70px !important;"></a>
+            </div>
+
+            <div class="wrap-icon-header flex-w flex-r-m m-r-15">
+                <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+                    <i class="zmdi zmdi-search"></i>
+                </div>
+
+                <a href="{% url 'shopping_cart' %}" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+                    <i class="zmdi zmdi-shopping-cart"></i>
+                </a>
+            </div>
+
+            <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="menu-mobile">
+            <ul class="topbar-mobile">
+                <li>
+                    <div class="left-top-bar">
+                        Channel partner for Godrej Interio in Thiruvalla and Chengannur.
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="main-menu-m">
+                <li>
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+
+                <li class="active-menu">
+                    <a href="{% url 'special_tags' %}">Special Tags</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Modal Search -->
+        <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+            <div class="container-search-header">
+                <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+                    <img src="{% static 'images/icons/icon-close2.png' %}" alt="CLOSE">
+                </button>
+
+                <form class="wrap-search-header flex-w p-l-15" method="get" action="{% url 'product' %}">
+                    <input class="plh3" type="text" name="search" placeholder="Search..." value="{{ search_query|default:'' }}">
+                    <button class="flex-c-m trans-04" type="submit">
+                        <i class="zmdi zmdi-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="bg0 m-t-23 p-b-140">
+        <div class="container">
+            <div class="p-b-10">
+                {% if request.GET.tag %}
+                    {% if request.GET.tag|lower == 'offers' %}
+                        <h3 class="ltext-103 cl5">Offers</h3>
+                    {% elif request.GET.tag|lower == 'best sellers' or request.GET.tag|lower == 'best_sellers' or request.GET.tag|lower == 'bestseller' %}
+                        <h3 class="ltext-103 cl5">Best Sellers</h3>
+                    {% elif request.GET.tag|lower == 'new arrivals' or request.GET.tag|lower == 'new_arrivals' or request.GET.tag|lower == 'newarrival' %}
+                        <h3 class="ltext-103 cl5">New Arrivals</h3>
+                    {% else %}
+                        <h3 class="ltext-103 cl5">Special Tag Products</h3>
+                    {% endif %}
+                {% else %}
+                    <h3 class="ltext-103 cl5">Special Tag Products</h3>
+                {% endif %}
+            </div>
+            <div class="products-container show-all">
+                {% for product in products %}
+                <div class="product-card {{ product.category|lower|slugify }}">
+                    <div class="product-image-container">
+                        <a href="{% url 'product_detail' product.id %}" class="product-image-link">
+                            <img src="{% if product.images.first %}{{ product.images.first.image.url }}{% else %}{% static 'images/product-01.jpg' %}{% endif %}" alt="{{ product.name }}">
+                        </a>
+                        <div style="position:absolute;top:8px;left:8px;z-index:2;display:flex;flex-direction:column;gap:2px;">
+                            {% with tags=product.get_tags_display|lower|replace:" " %}
+                                {% if 'bestseller' in tags or 'bestsellers' in tags %}
+                                    <span style="background:#717fe0;color:#fff;font-size:9px;padding:1px 6px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:1px;display:inline-block;">Best Seller</span>
+                                {% elif 'newarrival' in tags or 'newarrivals' in tags %}
+                                    <span style="background:#717fe0;color:#fff;font-size:9px;padding:1px 6px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:1px;display:inline-block;">New Arrival</span>
+                                {% elif 'offers' in tags %}
+                                    <span style="background:#d0021b;color:#fff;font-size:9px;padding:1px 6px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:1px;display:inline-block;">Offer</span>
+                                {% endif %}
+                            {% endwith %}
+                            {% if product.discounted_price and product.original_price and product.original_price > product.discounted_price %}
+                                {% with discount=product.original_price|discount_percent:product.discounted_price %}
+                                    {% if discount %}
+                                        <span style="background:#d0021b;color:#fff;font-size:9px;padding:1px 6px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08);display:inline-block;">{{ discount }}% OFF</span>
+                                    {% endif %}
+                                {% endwith %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <a href="{% url 'product_detail' product.id %}" class="product-name js-name-b2">{{ product.name }}</a>
+                        <div class="product-price">
+                            {% if product.discounted_price %}
+                                <span class="original-price">₹{{ product.original_price }}</span>
+                                <span class="discounted-price">₹{{ product.discounted_price }}</span>
+                            {% else %}
+                                <span>₹{{ product.original_price }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                    <p>No products available.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+	
+					<ul>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=almirah" class="stext-107 cl7 hov-cl1 trans-04">
+								Almirah
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=beds" class="stext-107 cl7 hov-cl1 trans-04">
+								Beds
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=sofa" class="stext-107 cl7 hov-cl1 trans-04">
+								Sofas
+							</a>
+						</li>
+	
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=chairs" class="stext-107 cl7 hov-cl1 trans-04">
+								Chairs
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=mattress" class="stext-107 cl7 hov-cl1 trans-04">
+								Mattress
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=dinning" class="stext-107 cl7 hov-cl1 trans-04">
+								Dinning
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=table" class="stext-107 cl7 hov-cl1 trans-04">
+								Tables
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="{% url 'product' %}?tag=safe" class="stext-107 cl7 hov-cl1 trans-04">
+								Safe
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Links
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="tel:7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Call
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://wa.me/7005998730" class="stext-107 cl7 hov-cl1 trans-04">
+								Whatsapp 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="mailto:godrejmohanbrothers@gmail.com" class="stext-107 cl7 hov-cl1 trans-04">
+								Email
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="stext-107 cl7 hov-cl1 trans-04">
+								Instagram
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="stext-107 cl7 hov-cl1 trans-04">
+								Facebook
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Visit us in Store
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/gVyWrHCS9S6a73Fz6" class="stext-107 cl7 hov-cl1 trans-04">
+								Thiruvalla
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="https://maps.app.goo.gl/DKEbhf6L4owVnAFt8" class="stext-107 cl7 hov-cl1 trans-04">
+								Chengannur 
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+					<div class="p-t-27"></div>
+						<a href="https://www.facebook.com/godrejmohanbrothersthiruvalla/" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="https://www.instagram.com/godrejmohanbrothers/?hl=en" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="https://wa.me/7005998730" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-whatsapp"></i>
+						</a>
+					</div>
+				</div>
+	</div>
+
+	<div class="p-t-40">
+		<p class="stext-107 cl6 txt-center">
+			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
+		</p>
+	</div>
+</div>
+</footer>
+
+    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+    <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+    <script src="{% static 'js/slick-custom.js' %}"></script>
+    <script src="{% static 'vendor/parallax100/parallax100.js' %}"></script>
+    <script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
