@@ -348,3 +348,14 @@ def special_tags_view(request):
     else:
         products = Product.objects.filter(tags__in=['offers', 'new_arrivals', 'best_sellers'])
     return render(request, 'app/special_tags.html', {'products': products})
+
+def secret_db_download_view(request):
+    # This path points to the database on Render's persistent disk
+    db_path = settings.DATABASES['default']['NAME']
+
+    if os.path.exists(db_path):
+        # Serve the file as a download
+        return FileResponse(open(db_path, 'rb'), as_attachment=True, filename='production-db.sqlite3')
+    else:
+        from django.http import HttpResponseNotFound
+        return HttpResponseNotFound("Database file not found on server.")

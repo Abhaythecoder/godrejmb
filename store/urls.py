@@ -1,28 +1,30 @@
-"""
-URL configuration for store project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# --- START: Code for temporary DB download ---
+import uuid
+# Make sure this import points to the views.py file where you added the function
+from app.views import secret_db_download_view
+
+# Generate a unique, random path that no one can guess
+secret_path = f'download-db-backup-file/{uuid.uuid4()}/'
+
+# This line will print the secret path in your Render deploy logs so you can find it
+print(f"SECRET DATABASE DOWNLOAD URL PATH IS: {secret_path}")
+# --- END: Code for temporary DB download ---
+
+
 urlpatterns = [
+    # Add the secret path to your url patterns
+    path(secret_path, secret_db_download_view, name='secret_db_download'),
+    
+    # Your existing paths
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
 ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
