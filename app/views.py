@@ -5,6 +5,8 @@ from django.urls import reverse
 from .models import Product, Color
 from django import template
 from django.conf import settings
+from django.http import FileResponse
+import os
 register = template.Library()
 
 # A dictionary to map the filename to the view name for clarity
