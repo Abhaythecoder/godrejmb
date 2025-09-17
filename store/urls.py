@@ -5,8 +5,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    # Add the secret path to your url patterns
-    path(secret_path, secret_db_download_view, name='secret_db_download'),
+
     
     # Your existing paths
     path('admin/', admin.site.urls),
