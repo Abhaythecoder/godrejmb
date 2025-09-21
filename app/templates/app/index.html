@@ -104,24 +104,26 @@
     
     .products-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* More mobile-friendly columns */
-        gap: 12px; /* Reduced gap */
+        grid-template-columns: 1fr; /* Single column */
+        gap: 40px;
         width: 100%;
         justify-items: center;
-        padding: 0 8px; /* Reduced padding */
+        padding: 0 40px;
+        max-width: 1400px;
+        margin: 0 auto;
     }
     
     .product-card {
         background-color: #ffffff;
         border: 1px solid #e9e9e9;
-        border-radius: 8px;
+        border-radius: 12px;
         overflow: hidden;
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         width: 100%;
-        max-width: 250px;
+        max-width: 900px; /* Extra wide */
         height: auto;
-        min-height: 300px; /* Reduced height */
+        min-height: 400px;
         display: flex;
         flex-direction: column;
     }
@@ -135,7 +137,7 @@
         position: relative;
         background-color: #f5f5f5;
         width: 100%;
-        height: 180px; /* Reduced height for mobile */
+        height: 300px;
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -193,21 +195,26 @@
     }
     
     .product-info {
-        padding: 15px; /* Reduced padding */
+        padding: 15px;
         text-align: center;
+        flex-grow: 1;
     }
     
     .product-name {
         font-family: 'Poppins', sans-serif;
-        font-size: 14px; /* Slightly smaller */
+        font-size: 14px;
         color: #333333;
         font-weight: 600;
         display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-bottom: 6px; /* Reduced margin */
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        margin-bottom: 4px;
+        line-height: 1.2;
         transition: color 0.3s ease;
+        min-height: auto;
+        max-height: 34px;
+        overflow: hidden;
     }
     
     .product-name:hover {
@@ -216,16 +223,17 @@
     
     .product-price {
         font-family: 'Poppins', sans-serif;
-        font-size: 15px; /* Slightly smaller */
+        font-size: 18px; /* Increased size */
         font-weight: 700;
+        padding: 5px 0; /* Added padding */
     }
     
     .product-price .original-price {
         text-decoration: line-through;
         color: #999;
         font-weight: 400;
-        margin-right: 6px; /* Reduced margin */
-        font-size: 13px; /* Slightly smaller */
+        margin-right: 8px; /* Increased margin */
+        font-size: 15px; /* Increased size */
     }
     
     .product-price .discounted-price {
@@ -265,16 +273,19 @@
     /* Mobile-specific styles */
     @media (max-width: 768px) {
         .products-container {
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 10px;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 0 20px;
         }
         
         .product-card {
-            min-height: 280px; /* Further reduced height */
+            min-height: 400px;
+            max-width: 700px; /* Very wide on tablets */
         }
         
         .product-image-container {
-            height: 160px; /* Further reduced height */
+            height: 250px;
+            padding: 10px;
         }
         
         .filter-btn {
@@ -290,16 +301,20 @@
     
     @media (max-width: 480px) {
         .products-container {
-            grid-template-columns: repeat(2, 1fr); /* Two columns on very small screens */
+            grid-template-columns: repeat(1, 1fr);
+            gap: 12px;
+            padding: 0 8px;
         }
         
         .product-card {
-            min-height: 260px; /* Even smaller on very small screens */
-            max-width: none; /* Remove max-width constraint */
+            min-height: 380px;
+            max-width: 100%;
+            margin: 0 auto;
         }
         
         .product-image-container {
-            height: 140px; /* Even smaller on very small screens */
+            height: 240px;
+            padding: 8px;
         }
         
         .filter-tope-group {
@@ -861,7 +876,7 @@
 			<div class="row flex-nowrap overflow-auto horizontal-scroll-container offers-row">
 				{% for product in products %}
 					{% if 'offers' in product.get_tags_display|lower %}
-					<div class="col-md-3 col-xl-2 p-b-30 m-lr-auto" style="min-width: 250px;">
+					<div class="col-md-3 col-xl-2 p-b-30 m-lr-auto" style="min-width: 325px;">
 						<div class="product-card">
 							<div class="product-image-container">
 								<a href="{% url 'product_detail' product.id %}" class="product-image-link">
@@ -915,7 +930,7 @@
 				{% with tags=product.get_tags_display|lower|replace:" " %}
                     
 					{% if 'bestseller' in tags or 'bestsellers' in tags %}
-					<div class="col-md-3 col-xl-2 p-b-30 m-lr-auto" style="min-width: 250px;">
+					<div class="col-md-3 col-xl-2 p-b-30 m-lr-auto" style="min-width: 325px;">
 						<div class="product-card">
 							<div class="product-image-container">
 								<a href="{% url 'product_detail' product.id %}" class="product-image-link">
@@ -963,7 +978,7 @@
 				{% with tags=product.get_tags_display|lower|replace:" " %}
                     
 					{% if 'newarrival' in tags or 'newarrivals' in tags %}
-					<div class="col-md-3 col-xl-2 p-b-30 m-lr-auto" style="min-width: 250px;">
+					<div class="col-md-3 col-xl-2 p-b-30 m-lr-auto" style="min-width: 325px;">
 						<div class="product-card">
 							<div class="product-image-container">
 								<a href="{% url 'product_detail' product.id %}" class="product-image-link">
